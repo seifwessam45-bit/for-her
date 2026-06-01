@@ -95,15 +95,22 @@ document.addEventListener('DOMContentLoaded', () => {
         // Show logout button and dismiss overlay
         if (logoutBtn) logoutBtn.classList.remove('hidden');
         if (loginMessage) {
+            if (u === 'Lujain S') {
+                loginMessage.querySelector('h2').textContent = 'ahlan beke gwa albe ❤️';
+                loginMessage.querySelector('p:nth-of-type(1)').textContent = 'gwa htshofe ale fe albe leke w a7sase mn n7ytk w ana shyfk azy';
+                loginMessage.querySelector('p:nth-of-type(2)').textContent = 'ast3de l ra7la momkn ttawl m3ake shwaya';
+            } else {
+                loginMessage.querySelector('h2').textContent = `أهلاً يا ${u}! ❤️`;
+                loginMessage.querySelector('p:nth-of-type(1)').textContent = 'لقد تم تسجيل الدخول بنجاح، وها هو الموقع في انتظارك ليستكشفه قلبك ويستمتع بكل زاوية فيه.';
+                loginMessage.querySelector('p:nth-of-type(2)').textContent = 'اضغط على الزر لتظهر لك باقي الصفحات، الصور، و الكلمات اللي جهزتها خصيصاً لك.';
+            }
+
+            // Hide the login form smoothly
+            loginForm.classList.add('hidden');
+
+            // Show the romantic message modal smoothly with scaling transition
             loginMessage.classList.remove('hidden');
-            loginMessage.querySelector('h2').textContent = `أهلاً ${u}!`;
-            loginMessage.querySelector('p:nth-of-type(1)').textContent = 'لقد تم تسجيل الدخول بنجاح، وها هو الموقع في انتظارك ليستكشفه قلبك.';
-            loginMessage.querySelector('p:nth-of-type(2)').textContent = 'اضغط على الزر لتظهر لك باقي الصفحات، الصور، و الكلمات اللي جهزتها خصيصاً.';
         }
-        welcomeOverlay.style.animation = 'welcomeFadeOut 0.6s ease forwards';
-        setTimeout(() => {
-            welcomeOverlay.classList.add('hidden');
-        }, 600);
     });
 
     // Logout behavior: show welcome overlay again and clear inputs
@@ -128,6 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (continueBtn) {
         continueBtn.addEventListener('click', () => {
+            // Dismiss welcome overlay with fadeOut animation
+            welcomeOverlay.style.animation = 'welcomeFadeOut 0.6s ease forwards';
+            setTimeout(() => {
+                welcomeOverlay.classList.add('hidden');
+            }, 600);
+
             if (loginMessage) {
                 loginMessage.classList.add('hidden');
             }
@@ -141,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mousemove', (e) => {
         cursor.style.left = e.clientX + 'px';
         cursor.style.top = e.clientY + 'px';
-        
+
         setTimeout(() => {
             follower.style.left = e.clientX - 16 + 'px';
             follower.style.top = e.clientY - 16 + 'px';
