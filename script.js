@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (logoutBtn) logoutBtn.classList.remove('hidden');
         if (loginMessage) {
             if (u === 'Lujain S') {
-                loginMessage.querySelector('h2').textContent = 'ahlan beke gwa albe ❤️';
+                loginMessage.querySelector('h2').textContent = 'ahlan beke gwa albe';
                 loginMessage.querySelector('p:nth-of-type(1)').textContent = 'gwa htshofe ale fe albe leke w a7sase mn n7ytk w ana shyfk azy';
                 loginMessage.querySelector('p:nth-of-type(2)').textContent = 'ast3de l ra7la momkn ttawl m3ake shwaya';
             } else {
