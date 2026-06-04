@@ -1,8 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Logo Typewriter Effect
+    // Logo Typewriter Effect Setup
     const logoEl = document.querySelector('.logo');
+    let logoText = '';
     if (logoEl) {
-        const logoText = logoEl.textContent.trim();
+        logoText = logoEl.textContent.trim();
+        logoEl.textContent = ''; // clear initially so it's empty under the overlay
+    }
+
+    function triggerLogoTypewriter() {
+        if (!logoEl || !logoText) return;
         logoEl.textContent = '';
         logoEl.classList.add('logo-typing');
 
@@ -151,6 +157,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (loginMessage) {
                 loginMessage.classList.add('hidden');
             }
+            if (logoEl) {
+                logoEl.textContent = '';
+            }
             loginUsername.focus();
         });
     }
@@ -166,6 +175,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (loginMessage) {
                 loginMessage.classList.add('hidden');
             }
+
+            // Start typing logo when overlay begins fading out
+            triggerLogoTypewriter();
         });
     }
 
