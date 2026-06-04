@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const diff = targetTime - now;
 
         if (diff <= 0) {
-            countdownDisplay.textContent = 'The selected date has arrived!';
+            countdownDisplay.textContent = 'Ready!?';
             clearInterval(countdownInterval);
             countdownInterval = null;
             return;
