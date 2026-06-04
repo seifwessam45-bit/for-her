@@ -1,4 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Logo Typewriter Effect
+    const logoEl = document.querySelector('.logo');
+    if (logoEl) {
+        const logoText = logoEl.textContent.trim();
+        logoEl.textContent = '';
+        logoEl.classList.add('logo-typing');
+
+        let index = 0;
+        function typeLogo() {
+            if (index < logoText.length) {
+                logoEl.textContent += logoText.charAt(index);
+                index++;
+                setTimeout(typeLogo, 180);
+            } else {
+                setTimeout(() => {
+                    logoEl.classList.remove('logo-typing');
+                }, 1000);
+            }
+        }
+        typeLogo();
+    }
+
     // Welcome & Login Handler
     const welcomeOverlay = document.getElementById('welcome-overlay');
     const welcomeBtn = document.getElementById('welcome-btn');
@@ -203,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 10);
             surpriseBtn.textContent = 'Close';
         } else {
-            surpriseBtn.textContent = 'Click for a small thing';
+            surpriseBtn.textContent = 'Dose hena ya lola';
         }
     });
 

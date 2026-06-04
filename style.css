@@ -447,6 +447,18 @@ nav {
     font-size: 1.8rem;
     font-weight: 400;
     font-style: italic;
+    border-right: 2px solid transparent;
+    padding-right: 4px;
+}
+
+.logo-typing {
+    border-right: 2px solid var(--accent);
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--accent); }
 }
 
 .nav-links {
